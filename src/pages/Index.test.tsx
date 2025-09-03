@@ -7,7 +7,7 @@ import "@testing-library/jest-dom/vitest";
 describe("Index", () => {
   // Test case: renders without tasks
   it("renders without tasks", () => {
-    render(<Index />);
+    render(<Index tasks={[]} />);
     expect(screen.queryByText("No tasks available")).toBeInTheDocument();
   });
 });
