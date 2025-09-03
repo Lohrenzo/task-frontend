@@ -12,7 +12,15 @@ export default function TaskDetails() {
   const fetchTask = async () => {
     try {
       const res = await fetch(
-        `${import.meta.env.VITE_API_BASE_URL}/tasks/${id}`
+        `${import.meta.env.VITE_API_BASE_URL}/tasks/${id}`,
+        {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Origin: `${import.meta.env.VITE_APP_URL}`,
+          },
+        }
       );
       if (res.ok) {
         const data = await res.json();
@@ -38,7 +46,11 @@ export default function TaskDetails() {
         `${import.meta.env.VITE_API_BASE_URL}/tasks/${id}/status`,
         {
           method: "PATCH",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Origin: `${import.meta.env.VITE_APP_URL}`,
+          },
           body: JSON.stringify({ status }),
         }
       );
@@ -63,6 +75,11 @@ export default function TaskDetails() {
         `${import.meta.env.VITE_API_BASE_URL}/tasks/${id}`,
         {
           method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+            Origin: `${import.meta.env.VITE_APP_URL}`,
+          },
         }
       );
 

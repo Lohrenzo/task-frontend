@@ -19,6 +19,7 @@ function App() {
           headers: {
             "Content-Type": "application/json",
             Accept: "application/json",
+            Origin: `${import.meta.env.VITE_APP_URL}`,
           },
         }
       );
